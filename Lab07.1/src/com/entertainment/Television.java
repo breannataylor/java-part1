@@ -58,7 +58,7 @@ public class Television {
         System.out.println("Turning " + brand + " TV on. Turning volume to " + volume +".\n");
     }
 
-    public void turnOff(){
+    public void turnOff() {
         System.out.println("Turning " + brand + " TV off.");
     }
 
