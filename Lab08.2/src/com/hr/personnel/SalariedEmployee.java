@@ -22,6 +22,12 @@ public class SalariedEmployee extends Employee {
 
     }
 
+    //business methods
+    @Override
+    public void pay() {
+        System.out.printf("%s is paid salary %s\n", getName(), getSalary());
+    }
+
     //accessor methods
     public double getSalary() {
         return salary;
@@ -33,7 +39,6 @@ public class SalariedEmployee extends Employee {
 
     @Override
     public String toString() {
-        return "SalariedEmployee: " +
-                "salary=" + getSalary();
+        return super.toString() + ", salary=" + getSalary();
     }
 }
