@@ -20,4 +20,8 @@ public class ExecutiveEmployee extends SalariedEmployee {
     public void work() {
         System.out.println(getName() + " enjoying a round of golf.");
     }
+
+    public void fileReturn() {
+        System.out.println("Return filed electronically.");
+    }
 }

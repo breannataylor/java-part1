@@ -36,7 +36,7 @@ public class SalariedEmployee extends Employee implements TaxPayer {
 
     public void payTaxes() {
         double taxes = getSalary() * SALARIED_TAX_RATE;
-        System.out.println(getName() + "paid taxes of " + taxes);
+        System.out.println(getName() + "paid taxes of " + taxes + ".\n");
     }
 
     //accessor methods

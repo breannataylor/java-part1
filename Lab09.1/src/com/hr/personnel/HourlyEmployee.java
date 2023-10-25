@@ -32,7 +32,7 @@ public class HourlyEmployee extends Employee implements TaxPayer {
 
     public void payTaxes() {
         double taxes = getRate() * getHours() * HOURLY_TAX_RATE;
-        System.out.println(getName() + "paid taxes of " + taxes + ".");
+        System.out.println(getName() + "paid taxes of " + taxes + ".\n");
 
     }
 
