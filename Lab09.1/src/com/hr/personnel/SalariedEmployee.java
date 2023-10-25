@@ -7,6 +7,7 @@ import java.time.LocalDate;
 public class SalariedEmployee extends Employee implements TaxPayer {
     //fields
     double salary;
+    private final double SALARY_STANDARD_DEDUCTION = 10_000.00;
 
     //constructors
     public SalariedEmployee() {
@@ -39,6 +40,7 @@ public class SalariedEmployee extends Employee implements TaxPayer {
         System.out.println(getName() + "paid taxes of " + taxes + ".\n");
     }
 
+
     //accessor methods
     public double getSalary() {
         return salary;
@@ -46,6 +48,10 @@ public class SalariedEmployee extends Employee implements TaxPayer {
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    public double getStandardDeduction() {
+        return SALARY_STANDARD_DEDUCTION;
     }
 
     @Override
