@@ -31,16 +31,16 @@ class InMemoryCatalogTest {
         // testFindByKeyword();
         // testFindByCategory();
          //testSize();
-        // testGetAll();
+        testGetAll();
 
         //TASK method tests
         // testFindSelfTitled();
         // testFindCheapRock();
         // testNumberinGenre();
-        // testgetAveragePrice();
+        // testFindAveragePrice();
          //testfindCheapest();
-        testIsLessThanTen();
-        testHasGenre();
+        //testIsLessThanTen();
+        //testHasGenre();
 
     }
 
@@ -62,9 +62,9 @@ class InMemoryCatalogTest {
         System.out.println(catalog.findCheapest(MusicCategory.CLASSIC_ROCK));
     }
 
-    private static void testgetAveragePrice() {
+    private static void testFindAveragePrice() {
         InMemoryCatalog catalog = new InMemoryCatalog();
-        System.out.println(catalog.getAveragePrice());
+        System.out.println(catalog.findAveragePrice());
     }
 
     private static void testNumberinGenre() {
@@ -109,6 +109,10 @@ class InMemoryCatalogTest {
     }
 
     private static void testGetAll() {
+        InMemoryCatalog catalog = new InMemoryCatalog();
+        Collection<MusicItem> allItems = catalog.getAll();
+        
+        allItems.clear(); // should throw an exception
     }
 
     //helper method to show the collection "vertically"

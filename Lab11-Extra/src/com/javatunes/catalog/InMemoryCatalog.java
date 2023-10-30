@@ -10,6 +10,7 @@ package com.javatunes.catalog;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 // OF COURSE THIS CLASS DOESN'T COMPILE
@@ -100,7 +101,7 @@ public class InMemoryCatalog implements Catalog {
 
     @Override
     public Collection<MusicItem> getAll() {
-        return null;
+        return Collections.unmodifiableCollection(catalogData);
     }
 
     /*
@@ -150,7 +151,7 @@ public class InMemoryCatalog implements Catalog {
      * TASK: determine average price of our low-cost, extensive catalog of music.
      * add up numbers and divide by 18.
      */
-    public double getAveragePrice(){
+    public double findAveragePrice(){
         double totalPrice = 0.0;
         for (MusicItem item : catalogData) {
             totalPrice += item.getPrice();
@@ -171,23 +172,20 @@ public class InMemoryCatalog implements Catalog {
      * TASK: find the average price of items in the specified genre (MusicCategory).
      */
 
-
     /**
      * TASK: are all items priced at least $10?
      * This is a yes/no answer.
      */
     public boolean isLessThanTen() {
-        boolean result = false;
+        boolean result = true;
         for (MusicItem item : catalogData) {
             if (item.getPrice() >= 10.00) {
-                result = true;
+                result = false;
             }
         }
 
         return result;
     }
-
-
 
     /**
      * TASK: do we sell any items with the specified genre (MusicCategory)?
@@ -203,7 +201,6 @@ public class InMemoryCatalog implements Catalog {
         }
         return result;
     }
-
 
     /**
      * TASK: find the titles of all "pop" items, sorted by natural order.
