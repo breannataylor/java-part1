@@ -9,6 +9,8 @@
 package com.poetry.io;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class PoemClient {
 
@@ -16,8 +18,8 @@ public class PoemClient {
      * To run one method at a time, uncomment the call to the one you want to execute.
      */
     public static void main(String[] args) {
-         //readPoem();
-         writePoem();
+         readPoem();
+         //writePoem();
     }
 
     /**
@@ -33,7 +35,15 @@ public class PoemClient {
      * The try-with-resources below allows you to initialize the stream and auto-close it.
      */
     private static void readPoem() {
-        // TODO: initialize 'reader' variable and complete the try block
+        //  Instead of this excessive BufferedReader null-check
+        try {
+            String poem = Files.readString(Path.of("famous-poem.txt"));
+            System.out.println(poem);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        /*
         try (BufferedReader reader = new BufferedReader(new FileReader("famous-poem.txt"))) {
             String line;
             while ( (line = reader.readLine()) != null){ //null means end of file (EOF)
@@ -44,6 +54,7 @@ public class PoemClient {
         catch (IOException e) {
             e.printStackTrace();
         }
+    */
     }
 
     /**
@@ -58,14 +69,24 @@ public class PoemClient {
      * Use a try-with-resources to initialize the stream and auto-close it.
      */
     private static void writePoem() {
-       try (PrintWriter writer = new PrintWriter(new FileWriter("haiku.txt"))) {
-           writer.println("Morning chill in air");
-           writer.println("The world unburdened by growth");
-           writer.println("Winter is coming");
-       }
-       catch (IOException e) {
-           e.printStackTrace();
+        String haiku = "Five syllables" +
+                "Seven syllables" +
+                "Five syllables";
 
-       }
+        try {
+            Files.writeString(Path.of("haiku1.txt"), haiku);
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+//       try (PrintWriter writer = new PrintWriter(new FileWriter("haiku.txt"))) {
+//           writer.println("Morning chill in air");
+//           writer.println("The world unburdened by growth");
+//           writer.println("Winter is coming");
+//       }
+//       catch (IOException e) {
+//           e.printStackTrace();
+//
+//       }
     }
 }
