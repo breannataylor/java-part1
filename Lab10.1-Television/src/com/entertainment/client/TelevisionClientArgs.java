@@ -54,7 +54,7 @@ class TelevisionClientArgs {
             //2. Create a Television object from these 3 ingredients
             Television tv = new Television(brand, volume, display);
 
-            //3. Congratualate them on their order and show the television
+            //3. Congratulate them on their order and show the television
             System.out.println("Congrats on your order, it will be there soon.");
             System.out.println(tv);
         } catch (Exception e) {

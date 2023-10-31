@@ -8,13 +8,10 @@
 
 package com.javatunes.catalog.test;
 
-import com.javatunes.catalog.Catalog;
 import com.javatunes.catalog.InMemoryCatalog;
 import com.javatunes.catalog.MusicCategory;
 import com.javatunes.catalog.MusicItem;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 
 class InMemoryCatalogTest {
@@ -31,7 +28,7 @@ class InMemoryCatalogTest {
         // testFindByKeyword();
         // testFindByCategory();
          //testSize();
-        testGetAll();
+        // testGetAll();
 
         //TASK method tests
         // testFindSelfTitled();
@@ -39,16 +36,26 @@ class InMemoryCatalogTest {
         // testNumberinGenre();
         // testFindAveragePrice();
          //testfindCheapest();
-        //testIsLessThanTen();
+        // testIsLessThanTen();
         //testHasGenre();
+        //testFindPopItems();
+         testEightiesItems();
 
     }
 
+    private static void testEightiesItems() {
+        InMemoryCatalog catalog = new InMemoryCatalog();
+        System.out.println(catalog.eightiesItems(15.00));
+    }
 
-    //TASK method tests
+    private static void testFindPopItems() {
+        InMemoryCatalog catalog = new InMemoryCatalog();
+        System.out.println(catalog.findPopItems(MusicCategory.ROCK));
+    }
     private static void testIsLessThanTen() {
         InMemoryCatalog catalog = new InMemoryCatalog();
-        boolean result = catalog.isLessThanTen();
+        boolean result = catalog.lowPriceCheck(10.00);
+        System.out.println(result);
     }
 
     private static void testHasGenre() {
@@ -111,7 +118,7 @@ class InMemoryCatalogTest {
     private static void testGetAll() {
         InMemoryCatalog catalog = new InMemoryCatalog();
         Collection<MusicItem> allItems = catalog.getAll();
-        
+
         allItems.clear(); // should throw an exception
     }
 
